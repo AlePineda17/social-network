@@ -1,0 +1,10 @@
+{% extends 'social/base.html' %}
+
+{% block content %}
+    <h1>Create Group</h1>
+        <form action="{% url 'social:make' %}" method="post">{% csrf_token %}
+            <p class="form-group"><label class="mr-sm-2">Name: </label><input type="text" name="name"></p>
+            <p class="form-group"><label class="mr-sm-2">Description: </label><input type="text" name="description"></p>
+            <input type="submit" class="btn btn-light btn-outline-secondary" value="Create Group" />
+        </form>
+{% endblock %}

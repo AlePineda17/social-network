@@ -1,0 +1,11 @@
+{% extends 'social/base.html' %}
+
+{% block content %}
+    <h1>Edit picture</h1>
+        <form action="{% url 'social:save_edit' activity.id %}" method="post" enctype='multipart/form-data'>{% csrf_token %}
+            <p class="form-group"><label class="mr-sm-2">Add a Picture: </label><input type="file" name="picture"></p>
+            <p class="form-group"><label class="mr-sm-2">Add a Text: </label><input type="text" name="text"></p>
+            <p><input type="hidden" name="owner_id" value="{{user}}"></p>
+            <input type="submit" class="btn btn-light btn-outline-secondary" value="Add" />
+        </form>
+{% endblock %}

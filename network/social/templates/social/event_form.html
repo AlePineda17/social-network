@@ -1,0 +1,13 @@
+{% extends 'social/base.html' %}
+
+{% block content %}
+    <h1>New Event</h1>
+    <form action="{% url 'social:new_event' %}" method="post" class="form-inline">{% csrf_token %}
+        <p class="form-group m"><label class="mr-sm-2">Name: </label><input type="text" name="name" class="mr-sm-4"></p>
+        <p class="form-group m"><label class="mr-sm-2">Description: </label><input type="text" name="description" class="mr-sm-4"></p>
+        <p class="form-group m"><label class="mr-sm-2">Date: </label><input type="date" name="date" class="mr-sm-4"></p>
+        <p class="form-group m"><label class="mr-sm-2">Start Time: </label><input type="time" name="start_time" class="mr-sm-4"></p>
+        <p class="form-group m"><label class="mr-sm-2">End Time: </label><input type="time" name="end_time" class="mr-sm-4"></p>
+        <input type="submit" class="btn btn-light btn-outline-secondary" value="Add event" />
+    </form>
+{% endblock %}

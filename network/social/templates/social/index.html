@@ -1,0 +1,19 @@
+{% extends 'social/base.html' %}
+
+{% block content %}
+    <button class="btn btn-light btn-outline-secondary"><a href="{% url 'social:activity' user %}">Add a picture</a></button>
+    <button class="btn btn-light btn-outline-secondary"><a href="{% url 'social:event' user %}">Add an event</a></button>
+    <button class="btn btn-light btn-outline-secondary"><a href="{% url 'social:event_list' %}">Show events</a></button>
+    <button class="btn btn-light btn-outline-secondary"><a href="{% url 'social:group' %}">Create a group</a></button>
+    <button class="btn btn-light btn-outline-secondary"><a href="{% url 'social:group_list' %}">Show groups</a></button>
+
+    <h1>Thread</h1>
+    {% if index %}
+        {% for info in index %}
+        <p><img src="{{ info.picture.url }}" class="rounded"></p>
+        <p>{{ info.text }} (<a href="{% url 'social:edit' info.id %}">edit</a>) (<a href="{% url 'social:delete' info.id %}">delete</a>)</p>
+        {% endfor %}
+    {% else %}
+        <p>Nothing to show.</p>
+    {% endif %}
+{% endblock %}
